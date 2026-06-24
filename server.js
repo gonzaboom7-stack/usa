@@ -3503,8 +3503,11 @@ app.get("/LGknmeM9HwWUWSutj6mJ", (req, res) => { // loading 3:
 });
 
 app.get("/PrTomeM9HwWUWSulkTe4", (req, res) => {
-  const today = new Date();
-  const processingDate = today.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+  const processingDate = today.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+});
 
   const deadline = new Date();
   deadline.setDate(today.getDate() + 2);
