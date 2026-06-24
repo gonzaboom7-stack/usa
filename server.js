@@ -3503,15 +3503,12 @@ app.get("/LGknmeM9HwWUWSutj6mJ", (req, res) => { // loading 3:
 });
 
 app.get("/PrTomeM9HwWUWSulkTe4", (req, res) => {
-  const processingDate = today.toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric'
-});
+  const today = new Date();
+  const processingDate = today.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
 
   const deadline = new Date();
   deadline.setDate(today.getDate() + 2);
-  const paymentDeadline = deadline.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+  const paymentDeadline = deadline.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
 
   const refundAmount = "89,35";
 
